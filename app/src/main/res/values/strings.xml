@@ -18,4 +18,5 @@
     <string name="decimal_button">.</string>
     <string name="negative_button">+/-</string>
     <string name="backspace_button">Back</string>
+    <string name="clear_button">C</string>
 </resources>
