@@ -133,4 +133,12 @@
         android:text="@string/decimal_button"
         tools:layout_editor_absoluteY="530dp"
         tools:layout_editor_absoluteX="201dp" />
+
+    <Button
+        android:id="@+id/backspace_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/backspace_button"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="338dp" />
 </android.support.constraint.ConstraintLayout>

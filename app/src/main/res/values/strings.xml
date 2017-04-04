@@ -17,4 +17,5 @@
     <string name="equals_button">=</string>
     <string name="decimal_button">.</string>
     <string name="negative_button">+/-</string>
+    <string name="backspace_button">Back</string>
 </resources>
