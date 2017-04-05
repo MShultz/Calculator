@@ -22,6 +22,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:id="@+id/calculation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:textSize="30sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/input_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/backspace_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="textEnd"
+            android:textSize="36sp" />
+
         <TableLayout
             android:id="@+id/tableLayout2"
             android:layout_width="wrap_content"
@@ -45,6 +65,7 @@
                     android:id="@+id/One_Button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/one_button"
                     tools:layout_editor_absoluteX="38dp"
                     tools:layout_editor_absoluteY="367dp" />
@@ -53,6 +74,7 @@
                     android:id="@+id/two_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/two_button"
                     tools:layout_editor_absoluteX="126dp"
                     tools:layout_editor_absoluteY="367dp" />
@@ -61,6 +83,7 @@
                     android:id="@+id/three_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/three_button"
                     tools:layout_editor_absoluteX="214dp"
                     tools:layout_editor_absoluteY="367dp" />
@@ -75,6 +98,7 @@
                     android:id="@+id/four_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/four_button"
                     tools:layout_editor_absoluteX="38dp"
                     tools:layout_editor_absoluteY="415dp" />
@@ -83,6 +107,7 @@
                     android:id="@+id/five_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/five_button"
                     tools:layout_editor_absoluteX="126dp"
                     tools:layout_editor_absoluteY="415dp" />
@@ -91,6 +116,7 @@
                     android:id="@+id/six_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/six_button"
                     tools:layout_editor_absoluteX="214dp"
                     tools:layout_editor_absoluteY="415dp" />
@@ -105,6 +131,7 @@
                     android:id="@+id/seven_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/seven_button"
                     tools:layout_editor_absoluteX="38dp"
                     tools:layout_editor_absoluteY="463dp" />
@@ -113,6 +140,7 @@
                     android:id="@+id/eight_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/eight_button"
                     tools:layout_editor_absoluteX="126dp"
                     tools:layout_editor_absoluteY="463dp" />
@@ -121,6 +149,7 @@
                     android:id="@+id/nine_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/nine_button"
                     tools:layout_editor_absoluteX="214dp"
                     tools:layout_editor_absoluteY="463dp" />
@@ -137,6 +166,7 @@
                     android:id="@+id/decimal_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/decimal_button"
                     tools:layout_editor_absoluteX="214dp"
                     tools:layout_editor_absoluteY="511dp" />
@@ -145,6 +175,7 @@
                     android:id="@+id/zero_button"
                     android:layout_width="85dp"
                     android:layout_height="60dp"
+                    android:onClick="addDigit"
                     android:text="@string/zero_button"
                     tools:layout_editor_absoluteX="126dp"
                     tools:layout_editor_absoluteY="511dp" />
