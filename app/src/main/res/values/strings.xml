@@ -19,4 +19,7 @@
     <string name="negative_button">+/-</string>
     <string name="backspace_button">Back</string>
     <string name="clear_button">C</string>
+    <string name="dec_button">Dec</string>
+    <string name="hex_button">Hex</string>
+    <string name="bin_button">Bin</string>
 </resources>
