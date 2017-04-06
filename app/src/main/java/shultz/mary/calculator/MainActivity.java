@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDigit(View view) {
-        if (currentInput.length() > 15)
+        if (currentInput.length() > 10)
             Toast.makeText(MainActivity.this, "Maximum number of digits met.", Toast.LENGTH_SHORT).show();
         else if (isConverted())
             Toast.makeText(MainActivity.this, "Cannot calculate while converted. Swap to decimal", Toast.LENGTH_SHORT).show();
