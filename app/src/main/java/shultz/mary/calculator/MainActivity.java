@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView calculationView;
     private double firstNum, secondNum = 0;
     private String calculationType = "";
+    private String nextOperand = "";
+    private String conversionType = "Dec";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDigit(View view) {
-        if (currentInput.length() < 15)
-            updateCurrentDigitInput(view);
-        else
+        if (currentInput.length() > 15)
             Toast.makeText(MainActivity.this, "Maximum number of digits met.", Toast.LENGTH_SHORT).show();
+        else if (isConverted())
+            Toast.makeText(MainActivity.this, "Cannot calculate while converted. Swap to decimal", Toast.LENGTH_SHORT).show();
+        else
+            updateCurrentDigitInput(view);
     }
 
     private boolean isDigit(String text) {
@@ -83,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setValue(String currentNum) {
         double completedNumber = Double.parseDouble(currentNum);
-        if (firstNum == 0) {
+        if (!hasFirst) {
+            clearHistory();
             firstNum = completedNumber;
             hasFirst = true;
         } else {
@@ -95,17 +100,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void addEvaluation(View view) {
         Button pressedButton = (Button) view;
-        if (currentInput.length() >= 1) {
-            evaluate();
-            setValue(currentInput.getText().toString());
-            calculationType = pressedButton.getText().toString();
-            addToHistory(calculationType);
-            currentInput.setText("");
-        } else if (pressedButton.getText().toString().equals("-")) {
-            currentInput.setText("-");
-        } else{
-            Toast.makeText(MainActivity.this, "Cannot operate without a number", Toast.LENGTH_SHORT).show();
-        }
+        if (!isConverted()) {
+            if (currentInput.length() > 0) {
+                setValue(currentInput.getText().toString());
+                nextOperand = pressedButton.getText().toString();
+                if (calculationType.equals(""))
+                    calculationType = nextOperand;
+                addToHistory(calculationType);
+                currentInput.setText("");
+                evaluate();
+            } else if (pressedButton.getText().toString().equals("-")) {
+                currentInput.setText("-");
+            } else {
+                Toast.makeText(MainActivity.this, "Cannot operate without a number", Toast.LENGTH_SHORT).show();
+            }
+        } else
+            Toast.makeText(MainActivity.this, "Cannot calculate while converted. Swap to decimal", Toast.LENGTH_SHORT).show();
     }
 
     private void evaluate() {
@@ -123,14 +133,16 @@ public class MainActivity extends AppCompatActivity {
                     else {
                         Toast.makeText(MainActivity.this, "You cannot divide by zero", Toast.LENGTH_SHORT).show();
                         clearHistory();
+                        resetValues();
                     }
                     break;
-                case "*":
+                case "x":
                     firstNum = firstNum * secondNum;
                     break;
             }
             clearHistory();
             addToHistory(firstNum);
+            calculationType = nextOperand;
             addToHistory(calculationType);
             hasSecond = false;
         }
@@ -138,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void equals(View view) {
+        setValue(currentInput.getText().toString());
         evaluate();
         clearHistory();
         addToHistory(firstNum);
@@ -150,5 +163,50 @@ public class MainActivity extends AppCompatActivity {
         firstNum = 0;
         secondNum = 0;
         hasFirst = hasSecond = false;
+        calculationType = nextOperand = "";
+        conversionType = "Dec";
+    }
+
+    public void hexConversion(View view) {
+        if (!conversionType.equals("Hex")) {
+            String conversion = decimalConversion(currentInput.getText().toString());
+            conversion = hexConversion(conversion);
+            currentInput.setText(conversion);
+            conversionType = "Hex";
+        }
+    }
+
+    public String hexConversion(String currentNum) {
+        return Integer.toHexString(Integer.parseInt(currentNum));
+    }
+
+    public String decimalConversion(String currentNum) {
+        int base = conversionType.equals("Dec") ? 10 : conversionType.equals("Bin") ? 2 : 16;
+        Integer convertedNum = Integer.parseInt(currentNum, base);
+        return convertedNum.toString();
+    }
+
+    public void decimalConversion(View view) {
+        currentInput.setText(decimalConversion(currentInput.getText().toString()));
+        conversionType = "Dec";
+    }
+
+    public String binaryConversion(String currentNum) {
+        return Integer.toBinaryString(Integer.parseInt(currentNum));
+    }
+
+
+    public void binaryConversion(View view) {
+        if (!conversionType.equals("Bin")) {
+            String conversion = decimalConversion(currentInput.getText().toString());
+            conversion = binaryConversion(conversion);
+            conversionType = "Bin";
+            currentInput.setText(conversion);
+        }
+    }
+
+
+    private boolean isConverted() {
+        return !conversionType.equals("Dec");
     }
 }

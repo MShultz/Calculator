@@ -211,6 +211,7 @@
                 android:layout_width="85dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:onClick="hexConversion"
                 android:text="@string/hex_button"
                 tools:layout_editor_absoluteX="136dp"
                 tools:layout_editor_absoluteY="38dp" />
@@ -220,6 +221,7 @@
                 android:layout_width="85dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:onClick="binaryConversion"
                 android:text="@string/bin_button"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="38dp" />
@@ -229,6 +231,7 @@
                 android:layout_width="85dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
+                android:onClick="decimalConversion"
                 android:text="@string/dec_button"
                 tools:layout_editor_absoluteX="260dp"
                 tools:layout_editor_absoluteY="38dp" />
