@@ -22,4 +22,7 @@
     <string name="dec_button">Dec</string>
     <string name="hex_button">Hex</string>
     <string name="bin_button">Bin</string>
+    <string name="percent_button">%</string>
+    <string name="n_root_button">√</string>
+    <string name="power_button">^</string>
 </resources>

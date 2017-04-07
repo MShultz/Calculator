@@ -6,253 +6,99 @@
     android:layout_height="match_parent"
     tools:context="shultz.mary.calculator.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/calculation_view"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:alpha=".5"
+        android:maxLength="20"
+        android:scrollHorizontally="true"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:singleLine="true"
+        android:textAlignment="viewEnd"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.017"
+        tools:singleLine="false" />
 
-        <TextView
-            android:id="@+id/input_view"
+    <TextView
+        android:id="@+id/input_view"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/backspace_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="15"
+        android:scrollHorizontally="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.167" />
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792">
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/backspace_button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:singleLine="true"
-            android:textAlignment="textEnd"
-            android:textSize="45sp" />
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
-        <TextView
-            android:id="@+id/calculation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textAlignment="viewEnd"
-            android:textSize="30sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:background="@android:color/holo_green_light"
+                android:onClick="clear"
+                android:text="@string/clear_button" />
 
-        <TableLayout
-            android:id="@+id/tableLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:weightSum="50"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.927"
-            android:layout_above="@+id/linearLayout2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/One_Button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/one_button"
-                    tools:layout_editor_absoluteX="38dp"
-                    tools:layout_editor_absoluteY="367dp" />
-
-                <Button
-                    android:id="@+id/two_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/two_button"
-                    tools:layout_editor_absoluteX="126dp"
-                    tools:layout_editor_absoluteY="367dp" />
-
-                <Button
-                    android:id="@+id/three_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/three_button"
-                    tools:layout_editor_absoluteX="214dp"
-                    tools:layout_editor_absoluteY="367dp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/four_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/four_button"
-                    tools:layout_editor_absoluteX="38dp"
-                    tools:layout_editor_absoluteY="415dp" />
-
-                <Button
-                    android:id="@+id/five_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/five_button"
-                    tools:layout_editor_absoluteX="126dp"
-                    tools:layout_editor_absoluteY="415dp" />
-
-                <Button
-                    android:id="@+id/six_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/six_button"
-                    tools:layout_editor_absoluteX="214dp"
-                    tools:layout_editor_absoluteY="415dp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/seven_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/seven_button"
-                    tools:layout_editor_absoluteX="38dp"
-                    tools:layout_editor_absoluteY="463dp" />
-
-                <Button
-                    android:id="@+id/eight_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/eight_button"
-                    tools:layout_editor_absoluteX="126dp"
-                    tools:layout_editor_absoluteY="463dp" />
-
-                <Button
-                    android:id="@+id/nine_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/nine_button"
-                    tools:layout_editor_absoluteX="214dp"
-                    tools:layout_editor_absoluteY="463dp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <Button
+                android:id="@+id/n_root_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addEvaluation"
+                android:text="@string/n_root_button"
                 tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp">
-
-                <Button
-                    android:id="@+id/decimal_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/decimal_button"
-                    tools:layout_editor_absoluteX="214dp"
-                    tools:layout_editor_absoluteY="511dp" />
-
-                <Button
-                    android:id="@+id/zero_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="addDigit"
-                    android:text="@string/zero_button"
-                    tools:layout_editor_absoluteX="126dp"
-                    tools:layout_editor_absoluteY="511dp" />
-
-                <Button
-                    android:id="@+id/clear_button"
-                    android:layout_width="85dp"
-                    android:layout_height="60dp"
-                    android:onClick="clear"
-                    android:text="@string/clear_button" />
-
-            </TableRow>
-        </TableLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tableLayout2"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/tableLayout2"
-            android:layout_marginBottom="17dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.847">
+                tools:layout_editor_absoluteY="-12dp" />
 
             <Button
-                android:id="@+id/hex_button"
+                android:id="@+id/power_button"
                 android:layout_width="85dp"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:onClick="hexConversion"
-                android:text="@string/hex_button"
-                tools:layout_editor_absoluteX="136dp"
-                tools:layout_editor_absoluteY="38dp" />
-
-            <Button
-                android:id="@+id/bin_button"
-                android:layout_width="85dp"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:onClick="binaryConversion"
-                android:text="@string/bin_button"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="38dp" />
-
-            <Button
-                android:id="@+id/dec_button"
-                android:layout_width="85dp"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:onClick="decimalConversion"
-                android:text="@string/dec_button"
-                tools:layout_editor_absoluteX="260dp"
-                tools:layout_editor_absoluteY="38dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.973"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.913"
-            android:layout_below="@+id/backspace_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+                android:onClick="addEvaluation"
+                android:text="@string/power_button" />
 
             <Button
                 android:id="@+id/addition_button"
@@ -261,6 +107,39 @@
                 android:onClick="addEvaluation"
                 android:text="@string/add_button"
                 tools:layout_editor_absoluteX="297dp"
+                tools:layout_editor_absoluteY="367dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/One_Button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/one_button"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="367dp" />
+
+            <Button
+                android:id="@+id/two_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/two_button"
+                tools:layout_editor_absoluteX="126dp"
+                tools:layout_editor_absoluteY="367dp" />
+
+            <Button
+                android:id="@+id/three_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/three_button"
+                tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="367dp" />
 
             <Button
@@ -272,6 +151,39 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="96dp" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/four_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/four_button"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="415dp" />
+
+            <Button
+                android:id="@+id/five_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/five_button"
+                tools:layout_editor_absoluteX="126dp"
+                tools:layout_editor_absoluteY="415dp" />
+
+            <Button
+                android:id="@+id/six_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/six_button"
+                tools:layout_editor_absoluteX="214dp"
+                tools:layout_editor_absoluteY="415dp" />
+
             <Button
                 android:id="@+id/multiply_button"
                 android:layout_width="85dp"
@@ -279,6 +191,39 @@
                 android:onClick="addEvaluation"
                 android:text="@string/multiply_button"
                 tools:layout_editor_absoluteX="297dp"
+                tools:layout_editor_absoluteY="463dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/seven_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/seven_button"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="463dp" />
+
+            <Button
+                android:id="@+id/eight_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/eight_button"
+                tools:layout_editor_absoluteX="126dp"
+                tools:layout_editor_absoluteY="463dp" />
+
+            <Button
+                android:id="@+id/nine_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/nine_button"
+                tools:layout_editor_absoluteX="214dp"
                 tools:layout_editor_absoluteY="463dp" />
 
             <Button
@@ -290,6 +235,39 @@
                 tools:layout_editor_absoluteX="166dp"
                 tools:layout_editor_absoluteY="77dp" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <Button
+                android:id="@+id/decimal_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/decimal_button"
+                tools:layout_editor_absoluteX="214dp"
+                tools:layout_editor_absoluteY="511dp" />
+
+            <Button
+                android:id="@+id/zero_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addDigit"
+                android:text="@string/zero_button"
+                tools:layout_editor_absoluteX="126dp"
+                tools:layout_editor_absoluteY="511dp" />
+
+            <Button
+                android:id="@+id/percent_button"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
+                android:onClick="addEvaluation"
+                android:text="@string/percent_button" />
+
             <Button
                 android:id="@+id/equals_button"
                 android:layout_width="85dp"
@@ -299,26 +277,52 @@
                 tools:layout_editor_absoluteX="297dp"
                 tools:layout_editor_absoluteY="511dp" />
 
-        </LinearLayout>
+        </TableRow>
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.306">
+    </TableLayout>
 
-        </FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tableLayout2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/tableLayout2"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="153dp">
+
+        <Button
+            android:id="@+id/hex_button"
+            android:layout_width="85dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:onClick="hexConversion"
+            android:text="@string/hex_button"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+        <Button
+            android:id="@+id/bin_button"
+            android:layout_width="85dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:onClick="binaryConversion"
+            android:text="@string/bin_button"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+        <Button
+            android:id="@+id/dec_button"
+            android:layout_width="85dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:onClick="decimalConversion"
+            android:text="@string/dec_button"
+            tools:layout_editor_absoluteX="260dp"
+            tools:layout_editor_absoluteY="38dp" />
 
         <Button
             android:id="@+id/backspace_button"
@@ -327,11 +331,11 @@
             android:layout_above="@+id/tableLayout2"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_weight="1"
             android:onClick="backspace"
             android:text="@string/backspace_button"
-            tools:layout_editor_absoluteX="297dp"
-            tools:layout_editor_absoluteY="319dp" />
-
-    </RelativeLayout>
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="124dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
