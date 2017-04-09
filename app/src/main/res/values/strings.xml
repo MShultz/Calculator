@@ -25,4 +25,6 @@
     <string name="percent_button">%</string>
     <string name="n_root_button">√</string>
     <string name="power_button">^</string>
+    <string name="append_button">Append</string>
+    <string name="shared_preference_button">Save Pref</string>
 </resources>
