@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDigit(View view) {
-         if (isConverted())
+        if (isConverted())
             Toast.makeText(MainActivity.this, "Cannot calculate while converted. Swap to decimal", Toast.LENGTH_SHORT).show();
         else
             updateCurrentDigitInput(view);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setValue(String currentNum) {
-        double completedNumber = Double.parseDouble(currentNum);
+        double completedNumber = currentNum.equals("") ? 0.0 : Double.parseDouble(currentNum);
         if (!hasFirst) {
             clearHistory();
             firstNum = completedNumber;
@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
                     firstNum = firstNum * secondNum;
                     break;
                 case "√":
-                    firstNum = Math.pow(secondNum,1/firstNum);
+                    firstNum = Math.pow(secondNum, 1 / firstNum);
                     break;
                 case "%":
-                    firstNum = (firstNum*0.01)*secondNum;
+                    firstNum = (firstNum * 0.01) * secondNum;
                     break;
                 case "^":
                     firstNum = Math.pow(firstNum, secondNum);
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hexConversion(View view) {
-        if (!conversionType.equals("Hex") && !isDecimal(getCurrentInput())&& !getCurrentInput().isEmpty()) {
+        if (!conversionType.equals("Hex") && !isDecimal(getCurrentInput()) && !getCurrentInput().isEmpty()) {
             String conversion = decimalConversion(getCurrentInput());
             conversion = hexConversion(conversion);
             currentInput.setText(conversion);
@@ -187,14 +187,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String decimalConversion(String currentNum) {
-            int base = conversionType.equals("Dec") ? 10 : conversionType.equals("Bin") ? 2 : 16;
-            Integer convertedNum = Integer.parseInt(currentNum, base);
-            return convertedNum.toString();
+        int base = conversionType.equals("Dec") ? 10 : conversionType.equals("Bin") ? 2 : 16;
+        Integer convertedNum = Integer.parseInt(currentNum, base);
+        return convertedNum.toString();
     }
 
 
     public void decimalConversion(View view) {
-        if(!isDecimal(getCurrentInput()) && !getCurrentInput().isEmpty()) {
+        if (!isDecimal(getCurrentInput()) && !getCurrentInput().isEmpty()) {
             currentInput.setText(decimalConversion(getCurrentInput()));
             conversionType = "Dec";
         }
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void binaryConversion(View view) {
-        if (!conversionType.equals("Bin") && !isDecimal(getCurrentInput())&& !getCurrentInput().isEmpty()) {
+        if (!conversionType.equals("Bin") && !isDecimal(getCurrentInput()) && !getCurrentInput().isEmpty()) {
             String conversion = decimalConversion(getCurrentInput());
             conversion = binaryConversion(conversion);
             conversionType = "Bin";
@@ -218,8 +218,16 @@ public class MainActivity extends AppCompatActivity {
     private boolean isConverted() {
         return !conversionType.equals("Dec");
     }
-    private boolean isDecimal(String currentNum){return currentNum.contains(".");}
-    private String getCurrentInput(){return currentInput.getText().toString();}
 
-    private void setCalculationType(String calculationType){this.calculationType = calculationType;}
+    private boolean isDecimal(String currentNum) {
+        return currentNum.contains(".");
+    }
+
+    private String getCurrentInput() {
+        return currentInput.getText().toString();
+    }
+
+    private void setCalculationType(String calculationType) {
+        this.calculationType = calculationType;
+    }
 }
